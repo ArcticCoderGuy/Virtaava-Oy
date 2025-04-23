@@ -1,0 +1,121 @@
+##########################
+# Node / Frontend Stuff #
+##########################
+node_modules/
+bower_components/
+dist/
+build/
+.cache/
+.next/
+out/
+public/build/
+.vite/
+.vitest/
+
+########################
+# Environment & Config #
+########################
+.env
+.env.*
+*.pem
+*.crt
+*.key
+*.pfx
+*.bak
+config.local.json
+secret.config.js
+
+##################
+# IDEs / Editors #
+##################
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+##################
+# Logs & Output  #
+##################
+*.log
+*.tmp
+*.temp
+*.bak
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+##################
+# Git / Merge    #
+##################
+*.orig
+*.rej
+*.conflict*
+*.swp
+*.swo
+
+##################
+# System Crap    #
+##################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+##################
+# OS-Specific    #
+##################
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+__MACOSX/
+
+######################
+# Test & Coverage    #
+######################
+coverage/
+.nyc_output/
+*.lcov
+test-output/
+cypress/screenshots/
+cypress/videos/
+
+##################
+# Export Files   #
+##################
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+##################
+# Miscellaneous  #
+##################
+*.sqlite
+*.sqlite3
+*.db
+*.tgz
+*.lock
+
+##################
+# MT5 & Trading  #
+##################
+*.ex5
+*.mq5
+tester/logs/
+MQL5/Logs/
+MQL5/Profiles/Tester/
+MQL5/Files/
+
+##########################
+# Fox-in-the-Code Magic #
+##########################
+.DARKMATTER/
+FOX_SECRET/
+define/
+build/
+finish/
+*.bmtemp
+*.outihytky
