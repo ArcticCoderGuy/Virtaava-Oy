@@ -11,6 +11,9 @@ out/
 public/build/
 .vite/
 .vitest/
+.tmp/
+.eslintcache
+.stylelintcache
 
 ########################
 # Environment & Config #
@@ -22,17 +25,23 @@ public/build/
 *.key
 *.pfx
 *.bak
-config.local.json
-secret.config.js
+config.local.*
+secret.*
+settings.local.*
+config/
+keys/
+credentials/
+auth.json
+private.json
 
 ##################
 # IDEs / Editors #
 ##################
 .vscode/
 .idea/
-*.sublime-workspace
-*.sublime-project
+*.sublime-*
 *.code-workspace
+*.iml
 
 ##################
 # Logs & Output  #
@@ -44,6 +53,8 @@ secret.config.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.trace
+*.pid
 
 ##################
 # Git / Merge    #
@@ -53,6 +64,8 @@ yarn-error.log*
 *.conflict*
 *.swp
 *.swo
+*.mergebackup
+*.un~
 
 ##################
 # System Crap    #
@@ -62,6 +75,7 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+*.lnk
 
 ##################
 # OS-Specific    #
@@ -81,6 +95,7 @@ coverage/
 test-output/
 cypress/screenshots/
 cypress/videos/
+jest-html-reporters-*
 
 ##################
 # Export Files   #
@@ -89,6 +104,10 @@ cypress/videos/
 *.tar.gz
 *.rar
 *.7z
+*.gz
+*.tar
+*.bak
+*.backup
 
 ##################
 # Miscellaneous  #
@@ -98,6 +117,9 @@ cypress/videos/
 *.db
 *.tgz
 *.lock
+*.log.old
+*.cache.db
+*.old
 
 ##################
 # MT5 & Trading  #
@@ -119,3 +141,4 @@ build/
 finish/
 *.bmtemp
 *.outihytky
+
