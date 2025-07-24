@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hyvinvointivirtaava.fi/sitemap.xml
+
+# Disallow admin or private directories (if any exist in future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+
+# Allow important pages
+Allow: /index.html
+Allow: /styles.css
+Allow: /img/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
