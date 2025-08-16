@@ -1,21 +1,56 @@
-// Virtaava Oy Website JavaScript - Modern ES6+ Implementation
+/**
+ * ============================================
+ * VIRTAAVA OY - PÄÄ JAVASCRIPT-TIEDOSTO
+ * ============================================
+ * 
+ * Tämä tiedosto sisältää sivuston kaikki interaktiiviset toiminnot.
+ * Käyttää modernia ES6+ syntaksia ja class-pohjaista rakennetta.
+ * 
+ * TOIMINNALLISUUDET:
+ * - Smooth scroll navigaatiossa
+ * - Mobiilimenu
+ * - Lomakkeen käsittely
+ * - Takaisin ylös -nappi
+ * - Animaatiot sivua vieritettäessä
+ * - Ilmoitukset ja virheviestit
+ * 
+ * YLLÄPITO:
+ * - Lisää uudet toiminnot VirtaavaWebsite-luokan metodiksi
+ * - Käytä selkeitä metodinimia (esim. setupNewFeature)
+ * - Lisää kommentit jokaiselle uudelle metodille
+ */
 
 class VirtaavaWebsite {
+    /**
+     * Konstruktori - Luokan alustus
+     * Kutsutaan automaattisesti kun luokka instantioidaan
+     */
     constructor() {
         this.init();
     }
 
+    /**
+     * Pääalustusmetodi
+     * Kutsuu kaikki setup-metodit oikeassa järjestyksessä
+     * YLLÄPITO: Lisää uudet setup-metodit tähän
+     */
     init() {
-        this.setupEventListeners();
-        this.setupIntersectionObserver();
-        this.setupScrollEffects();
-        this.setupFormHandling();
-        this.setupMobileMenu();
-        this.setupBackToTop();
+        this.setupEventListeners();      // Yleisiä event listenerejä
+        this.setupIntersectionObserver(); // Scroll-animaatiot
+        this.initCookieConsent();        // Evästehallinta (dummy-metodi)
+        this.setupScrollEffects();       // Scroll-efektit
+        this.setupFormHandling();        // Lomakkeen käsittely
+        this.setupMobileMenu();          // Mobiilimenu
+        this.setupBackToTop();           // Takaisin ylös -nappi
     }
 
+    /**
+     * Yleisten tapahtumankuuntelijoiden asennus
+     * Käsittelee smooth scroll -toiminnon ja nappien lataustitilat
+     */
     setupEventListeners() {
-        // Smooth scrolling for navigation links
+        // SMOOTH SCROLL - Pehmeä vieritys ankkurilinkeille
+        // Esim. href="#palvelut" vierittää palvelut-osioon
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -42,7 +77,14 @@ class VirtaavaWebsite {
         });
     }
 
+    /**
+     * Intersection Observer - Elementtien animointi näkyvyyden perusteella
+     * Lisää fade-in animaation elementeille kun ne tulevat näkyviin
+     * 
+     * YLLÄPITO: Lisää uusia animoitavia elementtejä elementsToAnimate-listaan
+     */
     setupIntersectionObserver() {
+        // Observer-asetukset
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -68,8 +110,14 @@ class VirtaavaWebsite {
         });
     }
 
+    /**
+     * Scroll-efektit - Navigaation piilotus/näyttö vierityksen mukaan
+     * - Piilottaa navigaation alaspäin vieritettäessä
+     * - Näyttää navigaation ylöspäin vieritettäessä
+     * - Hallitsee "Takaisin ylös" -napin näkyvyyttä
+     */
     setupScrollEffects() {
-        let lastScrollY = window.scrollY;
+        let lastScrollY = window.scrollY; // Tallenna edellinen scroll-positio
         const navbar = document.querySelector('nav');
 
         window.addEventListener('scroll', () => {
@@ -91,6 +139,12 @@ class VirtaavaWebsite {
         });
     }
 
+    /**
+     * Lomakkeen käsittely
+     * Asettaa submit-handlerin yhteydenottolomakkeelle
+     * 
+     * HUOM: Käyttää mailto: -ratkaisua (ei vaadi backend-palvelinta)
+     */
     setupFormHandling() {
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
@@ -98,6 +152,14 @@ class VirtaavaWebsite {
         }
     }
 
+    /**
+     * Mobiilimenu - Hampurilaisvalikko pienille näytöille
+     * - Toggle-toiminto menulle
+     * - Animoitu avautuminen/sulkeutuminen
+     * - Sulkee menun kun linkkiä klikataan
+     * 
+     * YLLÄPITO: Muokkaa animaation nopeutta setTimeout-arvosta (nyt 300ms)
+     */
     setupMobileMenu() {
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -132,6 +194,10 @@ class VirtaavaWebsite {
         }
     }
 
+    /**
+     * Takaisin ylös -nappi
+     * Vierittää sivun ylös smooth-animaatiolla
+     */
     setupBackToTop() {
         const backToTopButton = document.getElementById('back-to-top');
         if (backToTopButton) {
@@ -144,10 +210,16 @@ class VirtaavaWebsite {
         }
     }
 
+    /**
+     * Näyttää/piilottaa "Takaisin ylös" -napin scroll-position mukaan
+     * @param {number} scrollY - Nykyinen scroll-positio
+     * 
+     * YLLÄPITO: Muuta näkyvyysraja (nyt 400px) tarvittaessa
+     */
     toggleBackToTopButton(scrollY) {
         const backToTopButton = document.getElementById('back-to-top');
         if (backToTopButton) {
-            if (scrollY > 400) {
+            if (scrollY > 400) { // Näytä nappi kun vieritetty 400px
                 backToTopButton.classList.remove('opacity-0', 'invisible', 'translate-y-4');
                 backToTopButton.classList.add('opacity-100', 'visible', 'translate-y-0');
             } else {
@@ -157,8 +229,21 @@ class VirtaavaWebsite {
         }
     }
 
+    /**
+     * Käsittelee lomakkeen lähetyksen
+     * @param {Event} e - Submit-tapahtuma
+     * 
+     * TOIMINTA:
+     * 1. Validoi lomakkeen tiedot
+     * 2. Luo mailto-linkin
+     * 3. Avaa sähköpostiohjelman
+     * 4. Näyttää ilmoituksen käyttäjälle
+     * 
+     * HUOM: Vaatii sähköpostiohjelman käyttäjän koneella
+     * YLLÄPITO: Vaihda sähköpostiosoite mailtoLink-muuttujassa
+     */
     async handleFormSubmit(e) {
-        e.preventDefault();
+        e.preventDefault(); // Estä sivun uudelleenlataus
         
         const form = e.target;
         const submitButton = form.querySelector('#submit-button');
@@ -223,8 +308,18 @@ Lähetetty Virtaava Oy:n verkkosivulta
         }
     }
 
+    /**
+     * Validoi lomakkeen tiedot ennen lähetystä
+     * @param {Object} data - Lomakkeen data
+     * @returns {boolean} - True jos validointi onnistuu
+     * 
+     * VALIDOINNIT:
+     * - Pakolliset kentät täytetty
+     * - Sähköpostiosoite oikeassa muodossa
+     * - Viesti vähintään 10 merkkiä
+     */
     validateForm(data) {
-        // Check required fields
+        // Tarkista pakolliset kentät
         if (!data.firstName || !data.lastName || !data.email || !data.message) {
             this.showNotification('Täytä kaikki pakolliset kentät (*).', 'error');
             return false;
@@ -245,13 +340,24 @@ Lähetetty Virtaava Oy:n verkkosivulta
         return true;
     }
 
+    /**
+     * Tarkistaa sähköpostiosoitteen muodon
+     * @param {string} email - Tarkistettava sähköposti
+     * @returns {boolean} - True jos sähköposti on validi
+     */
     isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
 
+    /**
+     * Lisää latausanimaation nappiin
+     * @param {HTMLElement} button - Nappi johon lisätään lataustila
+     * 
+     * Näyttää pyörivän animaation ja "Lähetetään..." tekstin
+     */
     addLoadingState(button) {
-        button.disabled = true;
+        button.disabled = true; // Estä uudelleenklikkaus
         button.classList.add('loading');
         
         const originalText = button.innerHTML;
@@ -268,8 +374,14 @@ Lähetetty Virtaava Oy:n verkkosivulta
         `;
     }
 
+    /**
+     * Poistaa latausanimaation napista
+     * @param {HTMLElement} button - Nappi josta poistetaan lataustila
+     * 
+     * Palauttaa napin alkuperäisen tekstin
+     */
     removeLoadingState(button) {
-        button.disabled = false;
+        button.disabled = false; // Salli klikkaus taas
         button.classList.remove('loading');
         
         if (button.dataset.originalText) {
@@ -278,8 +390,20 @@ Lähetetty Virtaava Oy:n verkkosivulta
         }
     }
 
+    /**
+     * Näyttää ilmoituksen käyttäjälle
+     * @param {string} message - Ilmoituksen teksti
+     * @param {string} type - Ilmoituksen tyyppi: 'success', 'error', tai 'info'
+     * 
+     * TOIMINTA:
+     * - Luo ilmoituselementin
+     * - Näyttää sen oikeassa yläkulmassa
+     * - Poistaa automaattisesti 5 sekunnin kuluttua
+     * 
+     * YLLÄPITO: Muuta automaattisen poiston aika (nyt 5000ms)
+     */
     showNotification(message, type = 'info') {
-        // Remove existing notifications
+        // Poista vanhat ilmoitukset
         document.querySelectorAll('.notification-medical').forEach(notification => {
             notification.remove();
         });
@@ -340,7 +464,21 @@ Lähetetty Virtaava Oy:n verkkosivulta
         }, 5000);
     }
 
-    // Utility methods
+    /**
+     * ============================================
+     * APUMETODIT (UTILITY METHODS)
+     * ============================================
+     */
+
+    /**
+     * Debounce - Viivästyttää funktion suoritusta
+     * Käytetään estämään liian tiheä funktion kutsu
+     * @param {Function} func - Viivästytettävä funktio
+     * @param {number} wait - Viive millisekunteina
+     * @returns {Function} - Debounce-wrapped funktio
+     * 
+     * ESIMERKKI: Hakukentän automaattihaku
+     */
     debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -353,6 +491,15 @@ Lähetetty Virtaava Oy:n verkkosivulta
         };
     }
 
+    /**
+     * Throttle - Rajoittaa funktion suoritustiheyttä
+     * Suorittaa funktion korkeintaan kerran annetussa ajassa
+     * @param {Function} func - Rajoitettava funktio  
+     * @param {number} limit - Minimiaika kutsujen välillä (ms)
+     * @returns {Function} - Throttle-wrapped funktio
+     * 
+     * ESIMERKKI: Scroll-eventit, resize-eventit
+     */
     throttle(func, limit) {
         let inThrottle;
         return function() {
@@ -367,12 +514,26 @@ Lähetetty Virtaava Oy:n verkkosivulta
     }
 }
 
-// Initialize the website when DOM is loaded
+/**
+ * ============================================
+ * SIVUSTON ALUSTUS
+ * ============================================
+ */
+
+// Alusta sivusto kun DOM on ladattu
+// Tämä varmistaa että kaikki HTML-elementit ovat valmiina
 document.addEventListener('DOMContentLoaded', () => {
     new VirtaavaWebsite();
 });
 
-// Add keyboard navigation support
+/**
+ * ============================================
+ * NÄPPÄIMISTÖNAVIGAATIO JA SAAVUTETTAVUUS
+ * ============================================
+ */
+
+// Näppäimistönavigaation tuki
+// ESC-näppäin sulkee avoimet valikot ja ilmoitukset
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         // Close mobile menu if open
@@ -389,14 +550,23 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Enhanced accessibility
+// Parannettu saavutettavuus
+// Lisää focus-tyylin interaktiivisille elementeille
 document.addEventListener('focusin', (e) => {
     if (e.target.matches('a, button, input, textarea, select')) {
         e.target.classList.add('focus:ring-medical');
     }
 });
 
-// Preload critical resources
+/**
+ * ============================================
+ * SUORITUSKYVYN OPTIMOINTI
+ * ============================================
+ */
+
+// Lazy loading kuvien lataukselle
+// Lataa kuvat vasta kun ne tulevat näkyviin
+// YLLÄPITO: Lisää data-src attribuutti kuviin joita haluat lazy-ladata
 if ('IntersectionObserver' in window) {
     const preloadObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -417,18 +587,33 @@ if ('IntersectionObserver' in window) {
     });
 }
 
-// Error handling for the entire application
+/**
+ * ============================================
+ * VIRHEENKÄSITTELY
+ * ============================================
+ */
+
+// Globaali virheenkäsittely JavaScript-virheille
+// YLLÄPITO: Voit lisätä virheraportoinnin palveluun (esim. Sentry)
 window.addEventListener('error', (e) => {
     console.error('Application error:', e.error);
-    // Could implement error reporting here
+    // Tähän voi lisätä virheraportoinnin palveluun
 });
 
+// Käsittelee Promise-virheet (async/await)
 window.addEventListener('unhandledrejection', (e) => {
     console.error('Unhandled promise rejection:', e.reason);
-    // Could implement error reporting here
+    // Tähän voi lisätä virheraportoinnin palveluun
 });
 
-// Export for testing purposes (if needed)
+/**
+ * ============================================
+ * EXPORT (TESTAUSTA VARTEN)
+ * ============================================
+ */
+
+// Vie luokka testaamista varten (esim. Jest)
+// Käytetään vain jos sivustolla on yksikkötestejä
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = VirtaavaWebsite;
 }

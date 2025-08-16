@@ -1,37 +1,86 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
+    <!-- 
+    ============================================
+    META-TIEDOT JA SIVUSTON PERUSKONFIGURAATIO
+    ============================================
+    Tämä osio sisältää sivuston metatiedot, jotka ovat tärkeitä:
+    - Hakukoneoptimoinnin (SEO) kannalta
+    - Sosiaalisen median jakamisen kannalta
+    - Sivuston teknisen toiminnan kannalta
+    
+    YLLÄPITO: Päivitä title ja description asiakkaan tarpeiden mukaan
+    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO: Sivun otsikko näkyy selaimen välilehdessä ja hakutuloksissa -->
     <title>Virtaava Oy - Fysioterapia ja Hyvinvointipalvelut Meri-Lapissa</title>
+    
+    <!-- SEO: Kuvaus näkyy hakutuloksissa otsikon alla (max 160 merkkiä) -->
     <meta name="description" content="Ammattilaisten fysioterapiaa ja hyvinvointipalveluita Kemissä, Torniossa ja Simossa. KELA:n palveluntuottaja - luotettava kumppani terveydessäsi.">
+    
+    <!-- Favicon: Pieni ikoni joka näkyy selaimen välilehdessä -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.ico">
+    
+    <!-- 
+    ============================================
+    ULKOISET TYYLITIEDOSTOT JA KIRJASTOT
+    ============================================
+    -->
+    
+    <!-- Google Fonts: Ladataan Inter (leipäteksti) ja Merriweather (otsikot) fontit -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Omat tyylimäärittelyt -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Tailwind CSS: Utility-first CSS framework (CDN-versio) 
+         HUOM: Tuotannossa kannattaa käyttää build-versiota paremman suorituskyvyn vuoksi -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        /* 
+        ============================================
+        TAILWIND CSS KONFIGURAATIO
+        ============================================
+        Tässä määritellään sivuston värimaailma ja fontit
+        
+        YLLÄPITO: 
+        - medical-blue (#0891b2) on pääväri, joka tulee logosta
+        - cyan-väriskaala on johdettu pääväristä
+        - fontFamily määrittelee käytetyt fontit
+        
+        MUUTOKSET:
+        - Värien muuttaminen: Vaihda hex-koodit colors-osiossa
+        - Fonttien vaihtaminen: Muuta fontFamily-osiota JA Google Fonts -linkkiä
+        */
         tailwind.config = {
             theme: {
                 extend: {
+                    // Sivuston väripaletti
                     colors: {
+                        // Pääväri: Cyan-sininen logon mukaan
                         'medical-blue': '#0891b2',
+                        // Cyan-väriskaala eri sävyissä (50 = vaalein, 900 = tummin)
                         'cyan': {
-                            50: '#ecfeff',
-                            100: '#cffafe',
-                            200: '#a5f3fc',
-                            300: '#67e8f9',
-                            400: '#22d3ee',
-                            500: '#06b6d4',
-                            600: '#0891b2',
-                            700: '#0e7490',
-                            800: '#155e75',
-                            900: '#164e63'
+                            50: '#ecfeff',   // Taustoja varten (erittäin vaalea)
+                            100: '#cffafe',  // Vaaleat taustat
+                            200: '#a5f3fc',  // Korostukset
+                            300: '#67e8f9',  // Hover-tilat
+                            400: '#22d3ee',  // Aktiiviset elementit
+                            500: '#06b6d4',  // Painikkeet
+                            600: '#0891b2',  // Pääväri (medical-blue)
+                            700: '#0e7490',  // Tummat painikkeet
+                            800: '#155e75',  // Footer, tummat alueet
+                            900: '#164e63'   // Erittäin tumma (harvoin käytössä)
                         }
                     },
+                    // Fonttimäärittelyt
                     fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
-                        'merriweather': ['Merriweather', 'serif']
+                        'inter': ['Inter', 'sans-serif'],           // Leipäteksti
+                        'merriweather': ['Merriweather', 'serif']   // Otsikot
                     }
                 }
             }
@@ -40,6 +89,22 @@
     <script type="module" src="script.js"></script>
 </head>
 <body class="antialiased bg-white text-gray-900 font-inter leading-relaxed">
+    <!-- 
+    ============================================
+    NAVIGAATIO / HEADER
+    ============================================
+    Sticky-navigaatio joka pysyy näkyvissä sivua vieritettäessä
+    
+    RAKENNE:
+    1. Logo (ylärivillä keskitettynä)
+    2. Navigaatiolinkit (alarivillä)
+    3. Mobiilimenu (näkyy vain pienillä näytöillä)
+    
+    YLLÄPITO:
+    - Logo: Vaihda img/logo1.png tiedosto
+    - Linkit: Muokkaa href="#osio" ja tekstejä tarpeen mukaan
+    - Ajanvarausnappi: Vaihda href="https://varaa.nettiajat.fi/3894" oikeaan osoitteeseen
+    -->
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white/98 backdrop-blur-sm z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 lg:px-6">
@@ -84,6 +149,23 @@
         </div>
     </nav>
 
+    <!-- 
+    ============================================
+    HERO-OSIO (PÄÄBANNERI)
+    ============================================
+    Sivun ensimmäinen näkymä, joka luo ensivaikutelman
+    
+    SISÄLTÖ:
+    - Pääotsikko ja kuvaus
+    - CTA-napit (Call-to-Action): Ajanvaraus ja puhelinnumero
+    - Hero-kuva fysioterapiasta
+    - Statistiikkakortti kuvan päällä
+    
+    YLLÄPITO:
+    - Kuva: Vaihda img/hero-fysioterapia.jpg
+    - Tekstit: Muokkaa h1 ja p-elementtien sisältöä
+    - Statistiikat: Päivitä vuodet ja toimipisteiden määrä
+    -->
     <!-- Hero -->
     <section class="pt-56 pb-20 bg-gradient-to-b from-cyan-50/30 via-white to-white">
         <div class="max-w-6xl mx-auto px-6 py-16">
@@ -104,8 +186,8 @@
                     </div>
                     
                     <p class="text-xl text-gray-600 leading-relaxed max-w-lg">
-                        Ammattitaitoista fysioterapiaa ja hyvinvointipalveluita kaikenikäisille 
-                        Meri-Lapin alueella. Kuntoutumme yhdessä kohti parempaa elämänlaatua.
+                        Ammattitaitoista hyvinvoinnin virtaa fysioterapiasta  kaikenikäisille 
+                        Meri-Lapin alueella. Kuntoudumme yhdessä kohti parempaa elämänlaatua.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
@@ -152,6 +234,24 @@
         </div>
     </section>
 
+    <!-- 
+    ============================================
+    PALVELUT-OSIO
+    ============================================
+    Esittelee yrityksen tarjoamat palvelut
+    
+    RAKENNE:
+    - 2 pääpalvelua (Fysioterapia ja Kuntosali) isommissa korteissa
+    - 3 lisäpalvelua pienemmissä korteissa
+    
+    YLLÄPITO:
+    - Lisää/poista palveluita kopioimalla div-elementtejä
+    - Muuta ikonit vaihtamalla SVG-koodia
+    - Päivitä tekstit suoraan HTML:ssä
+    
+    HUOM: Tässä on placeholder-sisältöä, joka pitää korvata
+    asiakkaan toimittamilla tiedoilla
+    -->
     <!-- Services -->
     <section id="palvelut" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6">
@@ -298,6 +398,23 @@
         </div>
     </section>
 
+    <!-- 
+    ============================================
+    TIETOA MEISTÄ -OSIO
+    ============================================
+    Yrityksen esittely ja arvot
+    
+    SISÄLTÖ:
+    - Yrityksen tarina ja filosofia
+    - Luottamusindikaattorit (KELA, kotikäynnit jne.)
+    - CTA-kortti ajanvaraukselle
+    
+    YLLÄPITO:
+    - Päivitä yrityksen tarina ja arvot
+    - Lisää/muokkaa luottamusindikaattoreita
+    
+    HUOM: "Valttikorttimme on kohtaaminen" on placeholder-teksti
+    -->
     <!-- About -->
     <section id="tietoa" class="py-24 bg-gradient-to-b from-blue-50/50 to-white">
         <div class="max-w-6xl mx-auto px-6">
@@ -423,6 +540,24 @@
         </div>
     </section>
 
+    <!-- 
+    ============================================
+    TOIMIPISTEET-OSIO
+    ============================================
+    Esittelee yrityksen toimipisteet eri paikkakunnilla
+    
+    TOIMIPISTEET:
+    1. Kemi (päätoimipiste) - sininen kortti
+    2. Tornio (sopimuksen mukaan) - harmaa kortti
+    3. Simo (kotikäynnit) - vihreä kortti
+    
+    YLLÄPITO:
+    - Päivitä aukioloajat suoraan HTML:ssä
+    - Lisää oikeat osoitteet (nyt puuttuvat)
+    - Voit lisätä Google Maps -upotuksen myöhemmin
+    
+    HUOM: Aukioloajat ja palvelutiedot ovat placeholder-dataa
+    -->
     <!-- Locations -->
     <section id="toimipisteet" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6">
@@ -577,6 +712,26 @@
         </div>
     </section>
 
+    <!-- 
+    ============================================
+    YHTEYSTIEDOT-OSIO
+    ============================================
+    Yhteydenottolomake ja yhteystiedot
+    
+    VASEMMAN PALSTAN SISÄLTÖ:
+    - Puhelin, sähköposti, ajanvaraus
+    - Kiireellisten asioiden CTA
+    
+    OIKEAN PALSTAN SISÄLTÖ:
+    - Yhteydenottolomake (käyttää mailto: -toimintoa)
+    
+    YLLÄPITO:
+    - Vaihda puhelinnumero ja sähköposti oikeiksi
+    - Lomake lähettää tällä hetkellä sähköpostin mailto:lla
+    - Voit myöhemmin integroida backend-palvelun
+    
+    HUOM: Lomake ei toimi ilman sähköpostiohjelmaa
+    -->
     <!-- Contact -->
     <section id="yhteystiedot" class="py-24 bg-gradient-to-b from-blue-50/30 to-white">
         <div class="max-w-6xl mx-auto px-6">
@@ -750,6 +905,24 @@
         </div>
     </section>
 
+    <!-- 
+    ============================================
+    FOOTER (ALATUNNISTE)
+    ============================================
+    Sivuston alatunniste sisältää yhteenvedon tärkeimmistä tiedoista
+    
+    RAKENNE:
+    - Yrityksen tiedot ja kuvaus
+    - Palvelulista
+    - Yhteystiedot
+    - Copyright ja Y-tunnus
+    - Developer credit (Fox in the Code)
+    
+    YLLÄPITO:
+    - Päivitä Y-tunnus oikeaksi
+    - Päivitä copyright-vuosi tarvittaessa
+    - Yhteystiedot samat kuin ylempänä sivulla
+    -->
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16">
         <div class="max-w-6xl mx-auto px-6">
@@ -860,6 +1033,15 @@
         </div>
     </footer>
 
+    <!-- 
+    ============================================
+    TAKAISIN YLÖS -PAINIKE
+    ============================================
+    Ilmestyy kun käyttäjä on vierittänyt sivua alaspäin
+    Klikkaamalla pääsee takaisin sivun alkuun
+    
+    TOIMINTA: script.js hoitaa näkyvyyden ja toiminnallisuuden
+    -->
     <!-- Back to top button -->
     <button id="back-to-top" 
             class="no-print fixed bottom-6 right-6 bg-medical-blue text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 opacity-0 invisible transform translate-y-4">
@@ -868,6 +1050,111 @@
         </svg>
     </button>
 
+    <!-- 
+    ============================================
+    EVÄSTEKÄYTÄNTÖ-BANNERI
+    ============================================
+    GDPR-yhteensopiva evästeilmoitus
+    
+    TOIMINTA:
+    - Näytetään käyttäjälle ensimmäisellä käynnillä
+    - Käyttäjä voi hyväksyä kaikki, vain välttämättömät tai muokata asetuksia
+    - cookie-consent.js hoitaa logiikan
+    
+    YLLÄPITO:
+    - Tekstit voi muokata suoraan HTML:ssä
+    - Evästekategoriat määritelty modalissa
+    -->
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 transform transition-transform duration-300 translate-y-full z-50">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex-1">
+                <p class="text-sm">
+                    <strong>Evästeet ja tietosuoja</strong><br>
+                    Käytämme välttämättömiä evästeitä sivuston toiminnallisuuden varmistamiseksi. Haluamme myös käyttää analytiikkaevästeitä sivuston parantamiseksi.
+                </p>
+            </div>
+            <div class="flex gap-3">
+                <button id="cookie-reject" class="px-4 py-2 border border-gray-600 text-gray-300 rounded hover:bg-gray-800 transition-colors text-sm">
+                    Vain välttämättömät
+                </button>
+                <button id="cookie-settings" class="px-4 py-2 border border-cyan-600 text-cyan-400 rounded hover:bg-cyan-600 hover:text-white transition-colors text-sm">
+                    Asetukset
+                </button>
+                <button id="cookie-accept" class="px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700 transition-colors text-sm">
+                    Hyväksy kaikki
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+    ============================================
+    EVÄSTEASETUKSET-MODAALI
+    ============================================
+    Tarkemmat evästeasetukset käyttäjälle
+    
+    KATEGORIAT:
+    1. Välttämättömät (aina päällä)
+    2. Analytiikka (käyttäjä voi valita)
+    
+    YLLÄPITO:
+    - Lisää uusia evästekategorioita tarvittaessa
+    - cookie-consent.js hoitaa tallennuksen
+    -->
+    <!-- Cookie Settings Modal -->
+    <div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Evästeasetukset</h2>
+                
+                <div class="space-y-4">
+                    <div class="border-b pb-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Välttämättömät evästeet</h3>
+                                <p class="text-sm text-gray-600">Nämä evästeet ovat välttämättömiä sivuston perustoiminnoille.</p>
+                            </div>
+                            <div class="text-sm text-green-600 font-medium">Aina käytössä</div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b pb-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Analytiikkaevästeet</h3>
+                                <p class="text-sm text-gray-600">Auttavat meitä ymmärtämään sivuston käyttöä ja parantamaan palveluitamme.</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="analytics-toggle" class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-600"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex gap-3 mt-6">
+                    <button id="cookie-save" class="flex-1 bg-cyan-600 text-white py-2 px-4 rounded hover:bg-cyan-700 transition-colors">
+                        Tallenna asetukset
+                    </button>
+                    <button id="cookie-cancel" class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded hover:bg-gray-50 transition-colors">
+                        Peruuta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+    ============================================
+    JAVASCRIPT-TIEDOSTOT
+    ============================================
+    Ladataan sivun lopussa jotta HTML latautuu ensin
+    
+    script.js: Sivuston päätoiminnallisuudet
+    cookie-consent.js: Evästekäytännön hallinta
+    -->
     <script src="script.js"></script>
+    <script src="cookie-consent.js"></script>
 </body>
 </html>
