@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Käyttöehdot - Virtaava Oy</title>
+    <link rel="icon" type="image/png" href="img/logo1.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'merriweather': ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        'medical-blue': '#0891b2',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans text-gray-900">
+    <!-- Navigation (simplified) -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col items-center py-4">
+                <a href="index.html" class="mb-4">
+                    <img src="img/logo1.png" alt="Virtaava Oy" class="h-32 w-auto">
+                </a>
+                <a href="index.html" class="text-medical-blue hover:text-cyan-700 transition">← Takaisin etusivulle</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Terms of Service Content -->
+    <main class="py-16 bg-gradient-to-b from-cyan-50/30 to-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4 font-merriweather">Käyttöehdot</h1>
+            <p class="text-gray-600 mb-12">Päivitetty: 25.1.2025</p>
+
+            <!-- Terms Notice -->
+            <div class="bg-blue-50 border-l-4 border-medical-blue p-6 mb-8 rounded-r-lg">
+                <p class="text-gray-700">
+                    Nämä käyttöehdot koskevat Virtaava Oy:n verkkosivuston (www.virtaavaoy.fi) käyttöä. 
+                    Käyttämällä sivustoa hyväksyt nämä ehdot.
+                </p>
+            </div>
+
+            <!-- Sections -->
+            <div class="space-y-8">
+                <!-- 1. Yleistä -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Yleistä</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <p>
+                            Nämä käyttöehdot määrittelevät Virtaava Oy:n verkkosivuston käyttöä koskevat säännöt ja ehdot. 
+                            Sivuston käyttäjä sitoutuu noudattamaan näitä ehtoja.
+                        </p>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="font-semibold text-gray-900 mb-2">Palveluntarjoajan tiedot:</p>
+                            <p><strong>Yritys:</strong> Virtaava Oy</p>
+                            <p><strong>Y-tunnus:</strong> 3382174-5</p>
+                            <p><strong>Osoite:</strong> Kauppakatu 16, 95400 Tornio</p>
+                            <p><strong>Puhelin:</strong> 044 247 6464</p>
+                            <p><strong>Sähköposti:</strong> info@virtaavaoy.fi</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Sivuston käyttö -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Sivuston käyttö</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Sallittu käyttö</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4">
+                                <li>Tietojen hakeminen palveluistamme</li>
+                                <li>Yhteydenotto yhteydenottolomakkeen kautta</li>
+                                <li>Ajanvaraus toimipisteisiimme</li>
+                                <li>Sivuston sisällön lukeminen henkilökohtaiseen käyttöön</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Kielletty käyttö</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4">
+                                <li>Sivuston häirintä tai häiritseminen</li>
+                                <li>Laittoman tai haitallisen sisällön lähettäminen</li>
+                                <li>Automaattiset kyselyt (botit, scrapereit)</li>
+                                <li>Toisten henkilöiden tietojen väärinkäyttö</li>
+                                <li>Sivuston suojausten kiertäminen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Terveydenhuoltopalvelut -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">3. Terveydenhuoltopalvelut</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg">
+                            <p class="text-red-800 font-semibold mb-2">Tärkeää:</p>
+                            <p class="text-red-700">
+                                Verkkosivustomme sisältö on tarkoitettu yleiseen tiedottamiseen eikä se korvaa 
+                                ammattimaista lääketieteellistä neuvontaa, diagnoosia tai hoitoa.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Vastuuvapauslauseke</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                                <li>Ota aina yhteyttä lääkäriin kiireellisissä terveysasioissa</li>
+                                <li>Verkkosivuston tiedot eivät korvaa henkilökohtaista hoitoa</li>
+                                <li>Palvelumme tarjoavat tukea, eivät lääketieteellistä diagnoosia</li>
+                                <li>Hätätilanteissa soita numeroon 112</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Ammatilliset standardit</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4">
+                                <li>Olemme Valviran rekisteröimä terveydenhuollon palveluntuottaja</li>
+                                <li>Henkilökuntamme on laillistettuja fysioterapeutteja</li>
+                                <li>Noudatamme terveydenhuollon eettisiä ohjeita</li>
+                                <li>Meillä on voimassa oleva vastuuvakuutus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Tietosuoja ja yksityisyys -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Tietosuoja ja yksityisyys</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <p>
+                            Henkilötietojesi käsittely tapahtuu erillisen 
+                            <a href="privacy.html" class="text-medical-blue hover:underline">tietosuojaselosteen</a> 
+                            mukaisesti. Käyttämällä sivustoa hyväksyt tietojen käsittelyn selosteen mukaisesti.
+                        </p>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Evästeet</h3>
+                            <p>
+                                Sivustomme käyttää evästeitä käyttökokemuksen parantamiseksi. 
+                                Lue lisää <a href="cookies.html" class="text-medical-blue hover:underline">evästekäytännöstämme</a>.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Immateriaalioi]keudet -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Immateriaalioikeudet</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Tekijänoikeudet</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4">
+                                <li>Kaikki sivuston sisältö on tekijänoikeudellisesti suojattua</li>
+                                <li>Tekstit, kuvat ja grafiikka kuuluvat Virtaava Oy:lle</li>
+                                <li>Henkilökohtainen käyttö on sallittua</li>
+                                <li>Kaupallinen käyttö edellyttää kirjallista lupaa</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Tavaramerkit</h3>
+                            <p>
+                                "Virtaava Oy" ja yrityksen logo ovat rekisteröityjä tavaramerkkejä. 
+                                Niiden käyttö ilman lupaa on kiellettyä.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Kolmannen osapuolen sisältö</h3>
+                            <p>
+                                Sivustollamme saattaa olla linkkejä kolmansien osapuolten sivustoille. 
+                                Emme vastaa näiden sivustojen sisällöstä tai tietosuojakäytännöistä.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. Vastuunrajoitukset -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">6. Vastuunrajoitukset</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                            <p class="text-yellow-800 font-semibold mb-2">Vastuuvapauslauseke:</p>
+                            <p class="text-yellow-700">
+                                Sivusto tarjotaan "sellaisenaan" ilman minkäänlaisia takuita. 
+                                Emme vastaa sivuston käytöstä aiheutuvista vahingoista.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Rajoitettu vastuu</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                                <li>Emme vastaa sivuston toimivuudesta tai saatavuudesta</li>
+                                <li>Emme vastaa tietojen oikeellisuudesta tai ajantasaisuudesta</li>
+                                <li>Emme vastaa kolmansien osapuolten palveluista</li>
+                                <li>Emme vastaa teknisistä ongelmista tai tietokatkoksista</li>
+                                <li>Emme vastaa viruksista tai haittaohjelmista</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Käyttäjän vastuu</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4">
+                                <li>Käyttäjä vastaa omien tietojensa suojaamisesta</li>
+                                <li>Käyttäjä vastaa sivuston asianmukaisesta käytöstä</li>
+                                <li>Käyttäjä vastaa antamiensa tietojen oikeellisuudesta</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. Palvelun muutokset -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">7. Palvelun muutokset ja keskeyttäminen</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <p>
+                            Pidätämme oikeuden muuttaa, päivittää tai keskeyttää sivustomme toimintoja 
+                            milloin tahansa ilman erillistä ilmoitusta.
+                        </p>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Huoltokatkokset</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4">
+                                <li>Sivustossa saattaa olla määräaikaisia huoltokatkoksia</li>
+                                <li>Pyrimme ilmoittamaan merkittävistä katkoista etukäteen</li>
+                                <li>Emme vastaa katkosten aikana syntyneistä haitoista</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. Sovellettava laki -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">8. Sovellettava laki ja riidanratkaisu</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Sovellettava laki</h3>
+                            <p>
+                                Näihin käyttöehtoihin ja sivuston käyttöön sovelletaan Suomen lakia. 
+                                Kuluttajansuojalaki on ensisijainen kuluttajasopimuksissa.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Riidanratkaisu</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                                <li>Pyrimme ratkaisemaan erimielisyydet ensisijaisesti sovittelemalla</li>
+                                <li>Kuluttajariidoissa voidaan kääntyä kuluttajariitalautakunnan puoleen</li>
+                                <li>Tuomioistuinriidat käsitellään Rovaniemen käräjäoikeudessa</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="font-semibold text-blue-900 mb-2">Kuluttajariitalautakunta:</p>
+                            <p class="text-blue-800">PL 306, 00531 Helsinki</p>
+                            <p class="text-blue-800">
+                                <a href="https://www.kuluttajariita.fi" target="_blank" class="hover:underline">
+                                    www.kuluttajariita.fi
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9. Yhteystiedot -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">9. Yhteystiedot ja kysymykset</h2>
+                    <p class="text-gray-700 mb-4">
+                        Jos sinulla on kysymyksiä näistä käyttöehdoista, ota yhteyttä:
+                    </p>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-semibold text-gray-900 mb-4">Virtaava Oy</h3>
+                        <div class="space-y-2">
+                            <p class="text-gray-700">
+                                <strong>Sähköposti:</strong> 
+                                <a href="mailto:info@virtaavaoy.fi" class="text-medical-blue hover:underline ml-1">
+                                    info@virtaavaoy.fi
+                                </a>
+                            </p>
+                            <p class="text-gray-700">
+                                <strong>Puhelin:</strong> 
+                                <a href="tel:0442476464" class="text-medical-blue hover:underline ml-1">
+                                    044 247 6464
+                                </a>
+                            </p>
+                            <p class="text-gray-700"><strong>Y-tunnus:</strong> 3382174-5</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10. Ehtojen voimaantulo -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">10. Ehtojen voimaantulo ja muutokset</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                            <span>Käyttöehdot laadittu:</span>
+                            <span class="font-medium text-gray-900">25.1.2025</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                            <span>Viimeisin päivitys:</span>
+                            <span class="font-medium text-gray-900">25.1.2025</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span>Voimassa:</span>
+                            <span class="font-medium text-gray-900">25.1.2025 alkaen</span>
+                        </div>
+                        
+                        <div class="mt-6 bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
+                            <p class="text-blue-800">
+                                <strong>Muutokset:</strong> Pidätämme oikeuden muuttaa näitä käyttöehtoja. 
+                                Merkittävistä muutoksista ilmoitamme sivustollamme. 
+                                Jatkamalla sivuston käyttöä hyväksyt päivitetyt ehdot.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Back to homepage -->
+            <div class="mt-12 text-center">
+                <a href="index.html" class="inline-flex items-center text-medical-blue hover:text-cyan-700 transition">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                    </svg>
+                    Takaisin etusivulle
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-400">© 2025 Virtaava Oy. Kaikki oikeudet pidätetään.</p>
+        </div>
+    </footer>
+</body>
+</html>

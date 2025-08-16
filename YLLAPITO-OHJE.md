@@ -47,7 +47,7 @@ Yhteystiedot esiintyvät useassa paikassa. **Muista päivittää kaikki!**
 Hae ja korvaa kaikki esiintymät:
 - **Puhelin:** `044 247 6464` ja `0442476464`
 - **Sähköposti:** `info@hyvinvointivirtaava.fi`
-- **Y-tunnus:** `[Y-tunnus tähän]`
+- **Y-tunnus:** `3382174-5`
 
 Paikat missä yhteystiedot esiintyvät:
 - Hero-osio (rivi ~119-125)

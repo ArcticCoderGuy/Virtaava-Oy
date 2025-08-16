@@ -37,7 +37,7 @@ class VirtaavaWebsite {
     init() {
         this.setupEventListeners();      // Yleisiä event listenerejä
         this.setupIntersectionObserver(); // Scroll-animaatiot
-        this.initCookieConsent();        // Evästehallinta (dummy-metodi)
+        this.initCookieConsent();        // Evästehallinta GDPR-yhteensopiva
         this.setupScrollEffects();       // Scroll-efektit
         this.setupFormHandling();        // Lomakkeen käsittely
         this.setupMobileMenu();          // Mobiilimenu
@@ -462,6 +462,189 @@ Lähetetty Virtaava Oy:n verkkosivulta
                 setTimeout(() => notification.remove(), 300);
             }
         }, 5000);
+    }
+
+    /**
+     * ============================================
+     * EVÄSTEHALLINTA (COOKIE CONSENT)
+     * ============================================
+     * GDPR-yhteensopiva evästehallinta
+     */
+
+    /**
+     * Alustaa evästehallinta-systeemin
+     * Tarkistaa onko käyttäjä jo antanut suostumuksen
+     * Jos ei, näyttää evästebannerin
+     */
+    initCookieConsent() {
+        // Tarkista onko suostumus jo annettu
+        const consent = this.getCookie('cookie-consent');
+        const analytics = this.getCookie('analytics-consent');
+        
+        if (!consent) {
+            // Näytä evästebanneri
+            setTimeout(() => {
+                this.showCookieBanner();
+            }, 1000); // Viive 1s että sivu latautuu ensin
+        } else {
+            // Lataa analytiikka jos hyväksytty
+            if (analytics === 'true') {
+                this.enableAnalytics();
+            }
+        }
+
+        // Aseta event listenerit bannerin napeille
+        this.setupCookieEventListeners();
+    }
+
+    /**
+     * Näyttää evästebannerin
+     */
+    showCookieBanner() {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) {
+            banner.classList.remove('translate-y-full');
+            banner.style.display = 'block';
+        }
+    }
+
+    /**
+     * Piilottaa evästebannerin
+     */
+    hideCookieBanner() {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) {
+            banner.classList.add('translate-y-full');
+            setTimeout(() => {
+                banner.style.display = 'none';
+            }, 500);
+        }
+    }
+
+    /**
+     * Asettaa event listenerit evästebannerin napeille
+     */
+    setupCookieEventListeners() {
+        // Hyväksy kaikki evästeet
+        window.acceptAllCookies = () => {
+            this.setCookie('cookie-consent', 'all', 365);
+            this.setCookie('analytics-consent', 'true', 365);
+            this.enableAnalytics();
+            this.hideCookieBanner();
+            this.showNotification('Evästeet hyväksytty. Kiitos!', 'success');
+        };
+
+        // Hyväksy vain välttämättömät
+        window.acceptOnlyNecessary = () => {
+            this.setCookie('cookie-consent', 'necessary', 365);
+            this.setCookie('analytics-consent', 'false', 365);
+            this.hideCookieBanner();
+            this.showNotification('Vain välttämättömät evästeet hyväksytty.', 'info');
+        };
+
+        // Avaa evästeasetukset
+        window.openCookieSettings = () => {
+            const modal = document.getElementById('cookie-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                
+                // Lataa nykyiset asetukset
+                const analytics = this.getCookie('analytics-consent');
+                const checkbox = document.getElementById('analytics-consent');
+                if (checkbox) {
+                    checkbox.checked = analytics === 'true';
+                }
+            }
+        };
+
+        // Sulje evästeasetukset
+        window.closeCookieModal = () => {
+            const modal = document.getElementById('cookie-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        };
+
+        // Tallenna mukautetut asetukset
+        window.saveCustomSettings = () => {
+            const checkbox = document.getElementById('analytics-consent');
+            const analyticsEnabled = checkbox ? checkbox.checked : false;
+            
+            this.setCookie('cookie-consent', 'custom', 365);
+            this.setCookie('analytics-consent', analyticsEnabled ? 'true' : 'false', 365);
+            
+            if (analyticsEnabled) {
+                this.enableAnalytics();
+            } else {
+                this.disableAnalytics();
+            }
+            
+            this.hideCookieBanner();
+            window.closeCookieModal();
+            this.showNotification('Evästeasetukset tallennettu!', 'success');
+        };
+    }
+
+    /**
+     * Ottaa Google Analytics käyttöön
+     */
+    enableAnalytics() {
+        // Google Analytics 4 (GA4) koodi
+        // YLLÄPITO: Vaihda GA_MEASUREMENT_ID oikeaksi tracking ID:ksi
+        if (typeof gtag === 'undefined') {
+            const script1 = document.createElement('script');
+            script1.async = true;
+            script1.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
+            document.head.appendChild(script1);
+
+            const script2 = document.createElement('script');
+            script2.innerHTML = `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'GA_MEASUREMENT_ID', {
+                    'anonymize_ip': true,
+                    'respect_cookie_preferences': true
+                });
+            `;
+            document.head.appendChild(script2);
+        }
+        console.log('Analytics enabled');
+    }
+
+    /**
+     * Poistaa Google Analytics käytöstä
+     */
+    disableAnalytics() {
+        // Aseta gtag disable
+        if (typeof gtag !== 'undefined') {
+            gtag('config', 'GA_MEASUREMENT_ID', {
+                'client_storage': 'none'
+            });
+        }
+        console.log('Analytics disabled');
+    }
+
+    /**
+     * Cookie utility-funktiot
+     */
+    setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
+    }
+
+    getCookie(name) {
+        const nameEQ = name + '=';
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
     }
 
     /**

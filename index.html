@@ -218,7 +218,7 @@
                         <div class="grid grid-cols-2 gap-4 text-center">
                             <div>
                                 <div class="text-2xl font-bold text-cyan-600">25+</div>
-                                <div class="text-xs text-gray-600">Vuotta kokemusta</div>
+                                <div class="text-xs text-gray-600">25 Vuotta kokemusta</div>
                             </div>
                             <div>
                                 <div class="text-2xl font-bold text-cyan-600">3</div>
@@ -1005,12 +1005,25 @@
             <div class="border-t border-gray-800 mt-12 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <div class="text-gray-400 text-sm">
-                        &copy; 2024 Virtaava Oy. Kaikki oikeudet pidätetään.
+                        &copy; 2025 Virtaava Oy. Kaikki oikeudet pidätetään.
                     </div>
                     <div class="flex items-center space-x-6 text-sm text-gray-400">
-                        <span>Y-tunnus: [Y-tunnus tähän]</span>
+                        <span>Y-tunnus: 3382174-5</span>
                         <span class="hidden sm:inline">•</span>
                         <span>KELA:n palveluntuottaja</span>
+                    </div>
+                </div>
+                
+                <!-- Legal Links -->
+                <div class="mt-8 pt-6 border-t border-gray-800">
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs text-gray-500">
+                        <a href="privacy.html" class="hover:text-cyan-400 transition-colors">Tietosuojaseloste</a>
+                        <span class="hidden sm:inline">•</span>
+                        <a href="cookies.html" class="hover:text-cyan-400 transition-colors">Evästekäytäntö</a>
+                        <span class="hidden sm:inline">•</span>
+                        <a href="terms.html" class="hover:text-cyan-400 transition-colors">Käyttöehdot</a>
+                        <span class="hidden sm:inline">•</span>
+                        <a href="accessibility.html" class="hover:text-cyan-400 transition-colors">Saavutettavuusseloste</a>
                     </div>
                 </div>
                 
@@ -1066,24 +1079,87 @@
     - Evästekategoriat määritelty modalissa
     -->
     <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 transform transition-transform duration-300 translate-y-full z-50">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex-1">
-                <p class="text-sm">
-                    <strong>Evästeet ja tietosuoja</strong><br>
-                    Käytämme välttämättömiä evästeitä sivuston toiminnallisuuden varmistamiseksi. Haluamme myös käyttää analytiikkaevästeitä sivuston parantamiseksi.
-                </p>
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-medical-blue shadow-2xl z-50 transform translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="max-w-6xl mx-auto px-6 py-6">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div class="flex-1">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Evästeiden käyttö</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Käytämme evästeitä parantaaksemme sivustomme toimivuutta ja käyttökokemusta. 
+                        Välttämättömät evästeet ovat aina käytössä. Voit valita muiden evästeiden käytön.
+                        <a href="cookies.html" class="text-medical-blue hover:underline ml-1">Lue lisää evästekäytännöstä</a>
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 lg:ml-6">
+                    <button onclick="acceptOnlyNecessary()" 
+                            class="px-4 py-2 text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg transition text-sm font-medium">
+                        Vain välttämättömät
+                    </button>
+                    <button onclick="openCookieSettings()" 
+                            class="px-4 py-2 text-medical-blue bg-cyan-50 hover:bg-cyan-100 rounded-lg transition text-sm font-medium">
+                        Muokkaa asetuksia
+                    </button>
+                    <button onclick="acceptAllCookies()" 
+                            class="px-6 py-2 bg-medical-blue text-white hover:bg-cyan-700 rounded-lg transition text-sm font-medium">
+                        Hyväksy kaikki
+                    </button>
+                </div>
             </div>
-            <div class="flex gap-3">
-                <button id="cookie-reject" class="px-4 py-2 border border-gray-600 text-gray-300 rounded hover:bg-gray-800 transition-colors text-sm">
-                    Vain välttämättömät
-                </button>
-                <button id="cookie-settings" class="px-4 py-2 border border-cyan-600 text-cyan-400 rounded hover:bg-cyan-600 hover:text-white transition-colors text-sm">
-                    Asetukset
-                </button>
-                <button id="cookie-accept" class="px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700 transition-colors text-sm">
-                    Hyväksy kaikki
-                </button>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Evästeasetukset</h2>
+                    <button onclick="closeCookieModal()" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Necessary Cookies -->
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Välttämättömät evästeet</h3>
+                            <p class="text-sm text-gray-600 mt-1">Tarvitaan sivuston perustoiminnoille. Ei voi poistaa käytöstä.</p>
+                        </div>
+                        <div class="ml-4">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                Aina käytössä
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Cookies -->
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Analytiikkaevästeet</h3>
+                            <p class="text-sm text-gray-600 mt-1">Auttavat ymmärtämään sivuston käyttöä anonyymisti.</p>
+                        </div>
+                        <div class="ml-4">
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="analytics-consent" class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-medical-blue"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 mt-8">
+                    <button onclick="saveCustomSettings()" 
+                            class="flex-1 bg-medical-blue text-white px-6 py-3 rounded-lg hover:bg-cyan-700 transition font-medium">
+                        Tallenna asetukset
+                    </button>
+                    <button onclick="closeCookieModal()" 
+                            class="flex-1 bg-gray-200 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-300 transition font-medium">
+                        Peruuta
+                    </button>
+                </div>
             </div>
         </div>
     </div>

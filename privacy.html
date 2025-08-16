@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tietosuojaseloste - Virtaava Oy</title>
+    <link rel="icon" type="image/png" href="img/logo1.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'merriweather': ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        'medical-blue': '#0891b2',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans text-gray-900">
+    <!-- Navigation (simplified) -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col items-center py-4">
+                <a href="index.html" class="mb-4">
+                    <img src="img/logo1.png" alt="Virtaava Oy" class="h-32 w-auto">
+                </a>
+                <a href="index.html" class="text-medical-blue hover:text-cyan-700 transition">← Takaisin etusivulle</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Privacy Policy Content -->
+    <main class="py-16 bg-gradient-to-b from-cyan-50/30 to-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4 font-merriweather">Tietosuojaseloste</h1>
+            <p class="text-gray-600 mb-12">Päivitetty: 25.1.2025</p>
+
+            <!-- GDPR Notice -->
+            <div class="bg-blue-50 border-l-4 border-medical-blue p-6 mb-8 rounded-r-lg">
+                <p class="text-gray-700">
+                    Tämä tietosuojaseloste on laadittu EU:n yleisen tietosuoja-asetuksen (GDPR) mukaisesti. 
+                    Virtaava Oy käsittelee henkilötietojasi vastuullisesti ja läpinäkyvästi.
+                </p>
+            </div>
+
+            <!-- Sections -->
+            <div class="space-y-8">
+                <!-- 1. Rekisterinpitäjä -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Rekisterinpitäjä</h2>
+                    <div class="space-y-2 text-gray-700">
+                        <p><strong>Yritys:</strong> Virtaava Oy</p>
+                        <p><strong>Y-tunnus:</strong> 3382174-5</p>
+                        <p><strong>Osoite:</strong> Kauppakatu 16, 95400 Tornio</p>
+                        <p><strong>Puhelin:</strong> 044 247 6464</p>
+                        <p><strong>Sähköposti:</strong> info@virtaavaoy.fi</p>
+                    </div>
+                </section>
+
+                <!-- 2. Henkilötietojen käsittelyn tarkoitus -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Henkilötietojen käsittelyn tarkoitus ja oikeusperuste</h2>
+                    <p class="text-gray-700 mb-4">Käsittelemme henkilötietojasi seuraaviin tarkoituksiin:</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                        <li><strong>Potilasrekisteri:</strong> Lakisääteinen velvollisuus (Laki potilaan asemasta ja oikeuksista)</li>
+                        <li><strong>Ajanvaraukset:</strong> Sopimuksen täytäntöönpano</li>
+                        <li><strong>Asiakasviestintä:</strong> Oikeutettu etu (asiakassuhteen hoitaminen)</li>
+                        <li><strong>Laskutus:</strong> Sopimuksen täytäntöönpano ja lakisääteinen velvollisuus</li>
+                        <li><strong>KELA-korvaukset:</strong> Lakisääteinen velvollisuus</li>
+                        <li><strong>Markkinointi:</strong> Suostumus tai oikeutettu etu (olemassa olevat asiakkaat)</li>
+                    </ul>
+                </section>
+
+                <!-- 3. Käsiteltävät henkilötiedot -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">3. Käsiteltävät henkilötiedot</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Perustiedot:</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4">
+                                <li>Nimi, henkilötunnus, syntymäaika</li>
+                                <li>Yhteystiedot (osoite, puhelinnumero, sähköposti)</li>
+                                <li>Huoltajan tiedot (alaikäisten osalta)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Terveystiedot (erityisiä henkilötietoja):</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4">
+                                <li>Potilaskertomustiedot</li>
+                                <li>Diagnoosit ja hoitosuunnitelmat</li>
+                                <li>Lääkitystiedot</li>
+                                <li>Kuntoutussuunnitelmat</li>
+                                <li>Lausunnot ja lähetteet</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Tietojen säilytysaika -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Tietojen säilytysaika</h2>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                        <li><strong>Potilasasiakirjat:</strong> 12 vuotta potilaan kuolemasta tai 120 vuotta syntymästä (STM:n asetus)</li>
+                        <li><strong>Alaikäisen potilasasiakirjat:</strong> Vähintään 12 vuotta täysi-ikäiseksi tulemisesta</li>
+                        <li><strong>Kirjanpitoaineisto:</strong> 6 vuotta tilikauden päättymisestä</li>
+                        <li><strong>Markkinointirekisteri:</strong> Kunnes asiakas kieltää markkinoinnin</li>
+                    </ul>
+                </section>
+
+                <!-- 5. Tietojen luovuttaminen -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Tietojen luovuttaminen ja siirto</h2>
+                    <p class="text-gray-700 mb-4">Luovutamme tietoja vain seuraavissa tapauksissa:</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                        <li>Kansaneläkelaitokselle (KELA) korvausten käsittelyä varten</li>
+                        <li>Vakuutusyhtiöille potilaan suostumuksella</li>
+                        <li>Toisille terveydenhuollon toimijoille potilaan suostumuksella</li>
+                        <li>Viranomaisille lakisääteisten velvoitteiden noudattamiseksi</li>
+                        <li>Kanta-palveluihin (potilastiedon arkisto)</li>
+                    </ul>
+                    <p class="text-gray-700 mt-4">
+                        <strong>Huom:</strong> Emme siirrä tietoja EU/ETA-alueen ulkopuolelle.
+                    </p>
+                </section>
+
+                <!-- 6. Tietoturva -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">6. Tietojen suojaaminen</h2>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                        <li>Tiedot säilytetään lukituissa tiloissa ja suojatuissa tietojärjestelmissä</li>
+                        <li>Käyttöoikeudet on rajattu vain niille, jotka tarvitsevat tietoja työssään</li>
+                        <li>Henkilökunta on koulutettu tietosuoja-asioissa ja sitoutunut vaitiolovelvollisuuteen</li>
+                        <li>Tietojärjestelmät on suojattu salasanoilla ja palomuurilla</li>
+                        <li>Varmuuskopiot otetaan säännöllisesti</li>
+                    </ul>
+                </section>
+
+                <!-- 7. Rekisteröidyn oikeudet -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">7. Rekisteröidyn oikeudet</h2>
+                    <p class="text-gray-700 mb-4">Sinulla on seuraavat oikeudet henkilötietoihisi:</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                        <li><strong>Tarkastusoikeus:</strong> Oikeus saada tieto siitä, mitä tietoja sinusta on tallennettu</li>
+                        <li><strong>Oikeus tietojen oikaisemiseen:</strong> Oikeus pyytää virheellisten tietojen korjaamista</li>
+                        <li><strong>Oikeus tietojen poistamiseen:</strong> Tietyissä tilanteissa (ei koske potilasrekisteriä)</li>
+                        <li><strong>Oikeus käsittelyn rajoittamiseen:</strong> Tietyissä tilanteissa</li>
+                        <li><strong>Oikeus siirtää tiedot:</strong> Oikeus saada tiedot koneluettavassa muodossa</li>
+                        <li><strong>Vastustamisoikeus:</strong> Oikeus vastustaa suoramarkkinointia</li>
+                        <li><strong>Oikeus peruuttaa suostumus:</strong> Milloin tahansa, kun käsittely perustuu suostumukseen</li>
+                    </ul>
+                    <p class="text-gray-700 mt-4">
+                        Pyyntö tulee tehdä kirjallisesti ja todistaa henkilöllisyys. Vastaamme pyyntöön 30 päivän kuluessa.
+                    </p>
+                </section>
+
+                <!-- 8. Evästeet -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">8. Evästeet</h2>
+                    <p class="text-gray-700 mb-4">Verkkosivustomme käyttää evästeitä:</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                        <li><strong>Välttämättömät evästeet:</strong> Sivuston toiminnan kannalta välttämättömät</li>
+                        <li><strong>Analytiikkaevästeet:</strong> Google Analytics (vaatii suostumuksen)</li>
+                        <li><strong>Markkinointievästeet:</strong> Ei käytössä tällä hetkellä</li>
+                    </ul>
+                    <p class="text-gray-700 mt-4">
+                        Voit hallita evästeasetuksia selaimesi asetuksista tai evästebannerin kautta.
+                    </p>
+                </section>
+
+                <!-- 9. Valitusoikeus -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">9. Valitusoikeus</h2>
+                    <p class="text-gray-700 mb-4">
+                        Jos katsot, että henkilötietojesi käsittelyssä rikotaan tietosuojalainsäädäntöä, 
+                        sinulla on oikeus tehdä valitus valvontaviranomaiselle:
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="font-semibold text-gray-900">Tietosuojavaltuutetun toimisto</p>
+                        <p class="text-gray-700">PL 800, 00531 Helsinki</p>
+                        <p class="text-gray-700">Sähköposti: tietosuoja@om.fi</p>
+                        <p class="text-gray-700">Puhelin: 029 566 6700</p>
+                        <p class="text-gray-700 mt-2">
+                            <a href="https://tietosuoja.fi" target="_blank" class="text-medical-blue hover:underline">
+                                www.tietosuoja.fi
+                            </a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- 10. Muutokset -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">10. Muutokset tietosuojaselosteeseen</h2>
+                    <p class="text-gray-700">
+                        Pidätämme oikeuden päivittää tätä tietosuojaselostetta tarvittaessa. 
+                        Merkittävistä muutoksista ilmoitamme asiakkaillemme sähköpostitse tai verkkosivuillamme.
+                        Viimeisin päivitys on tehty 25.1.2025.
+                    </p>
+                </section>
+            </div>
+
+            <!-- Back to top -->
+            <div class="mt-12 text-center">
+                <a href="index.html" class="inline-flex items-center text-medical-blue hover:text-cyan-700 transition">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                    </svg>
+                    Takaisin etusivulle
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-400">© 2025 Virtaava Oy. Kaikki oikeudet pidätetään.</p>
+        </div>
+    </footer>
+</body>
+</html>
