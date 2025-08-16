@@ -280,7 +280,7 @@ Viesti:
 ${data.message}
 
 ---
-Lähetetty Virtaava Oy:n verkkosivulta
+Lähetetty Hyvinvointi Virtaava Oy:n verkkosivulta
             `);
             
             const mailtoLink = `mailto:info@hyvinvointivirtaava.fi?subject=${subject}&body=${body}`;
