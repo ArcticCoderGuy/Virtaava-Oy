@@ -1,8 +1,9 @@
 # Virtaava Oy - Projektin tila ja konteksti
 
-**Viimeksi päivitetty**: 25.1.2025  
+**Viimeksi päivitetty**: 26.1.2025  
 **Kehittäjä**: Fox in the Code (www.foxinthecode.fi)  
-**Live-sivu**: https://arcticcoderguy.github.io/Virtaava-Oy/
+**Live-sivu**: https://arcticcoderguy.github.io/Virtaava-Oy/  
+**Tuleva live**: https://hyvinvointivirtaava.fi/ (domain julkaisu valmistelus)
 
 ## 📊 Projektin nykyinen tila
 
@@ -15,12 +16,23 @@
 - **GitHub Pages**: Deployattu ja toimiva
 - **Developer credit**: Fox in the Code maininta footerissa
 - **KELA kirjoitusasu**: Korjattu "KELA:n palveluntuottaja"
+- **🆕 SEO & Sosiaalinen media**: Open Graph ja Twitter Card meta-tagit
+- **🆕 Saavutettavuus**: Skip-to-content linkki
+- **🆕 Suorituskyky**: Hero-kuvan preload
+- **🆕 Turvallisuus**: .htaccess HTTPS-pakotus ja cache-asetukset
+- **🆕 HTML validointi**: Duplikaatti ID:t korjattu
 
 ### 🔄 KESKENERÄISET OSAT
 - Palvelut-osio (placeholder-sisältö)
 - Tietoa meistä -osio (perusrakenne olemassa)
 - Toimipisteet (Kemi, Tornio, Simo - placeholder-data)
 - Yhteystiedot-osio (toimiva lomake, mutta placeholder-tiedot)
+
+### 📋 DOMAIN-JULKAISUA VARTEN (KIIREELLINEN)
+- **🔴 OG-kuva puuttuu**: Luo 1200x630px kuva → `img/og-image.jpg`
+- **🔴 Favicon.ico puuttuu**: Luo .ico tiedosto juureen
+- **🔴 Dev-tiedostot mukana**: Poista node_modules/, package.json jne.
+- **🟡 Cookie JS korjaus**: Tarkista cookie-consent.js viittaukset
 
 ### 📋 ODOTTAA ASIAKASPALAUTETTA
 - Logo koko ja sijoittelu
@@ -33,15 +45,22 @@
 ### Tiedostorakenne
 ```
 C:\Users\HP\Dev\Virtaava Oy\
-├── index.html          # Pääsivu (päivitetty versio)
+├── index.html          # Pääsivu (domain-valmis versio)
 ├── styles.css          # Cyan-värimaailma + Tailwind custom
 ├── script.js           # Interaktiiviset toiminnot
+├── cookie-consent.js   # Evästehallinta
+├── .htaccess          # 🆕 HTTPS + cache asetukset
+├── favicon.svg        # SVG favicon (modernit selaimet)
+├── robots.txt         # Hakukoneet
+├── sitemap.xml        # Sivukartta
 ├── img/
 │   ├── logo1.png       # Virtaava Oy logo
-│   └── hero-fysioterapia.jpg  # Hero-kuva (asiakas toimitti)
-├── package.json        # Vite + riippuvuudet
-├── vite.config.js      # Kehityspalvelin config
-└── CLAUDE.md          # Tämä tiedosto
+│   ├── hero-fysioterapia.jpg  # Hero-kuva (asiakas toimitti)
+│   └── og-image.jpg   # 🔴 PUUTTUU - Sosiaalisen median kuva
+├── package.json        # 🔴 POISTA ennen uploadausta
+├── vite.config.js      # 🔴 POISTA ennen uploadausta
+├── node_modules/       # 🔴 POISTA ennen uploadausta
+└── CLAUDE.md          # Projektin dokumentaatio
 ```
 
 ### Kehitysympäristö
@@ -119,6 +138,11 @@ npm run preview
 - **Hero-kuva väärä** → Asiakas toimitti oman kuvan
 - **Index2.html sekaannus** → Poistettu, käytetään vain index.html
 - **KELA kirjoitusvirhe** → Korjattu "KELA:n palveluntuottaja"
+- **🆕 Duplikaatti ID:t** → cookie-modal → cookie-settings-modal
+- **🆕 SEO puutteet** → Lisätty Open Graph ja Twitter Card tagit
+- **🆕 Saavutettavuuspuutteet** → Skip-to-content linkki lisätty
+- **🆕 Suorituskykyongelmat** → Hero-kuvan preload lisätty
+- **🆕 Turvallisuuspuutteet** → .htaccess HTTPS-pakotus ja cache
 
 ### Tiedossa olevat rajoitukset
 - Tailwind CSS ladataan CDN:stä (ei optimoitu)
